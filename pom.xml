@@ -1,0 +1,216 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>com.taoyiluo</groupId>
+    <artifactId>springboot-quickstarter</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+    <name>springboot-quickstarter</name>
+    <packaging>pom</packaging>
+    <description>springboot-quickstarter</description>
+    <!--boot工程的父工程，用于管理项目依赖的版本-->
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>3.0.2</version>
+    </parent>
+    <!--多模块分布式开发-->
+    <modules>
+        <module>springboot-quickstarter-run</module>
+        <module>springboot-quickstarter-api</module>
+        <module>springboot-quickstarter-service</module>
+        <module>springboot-quickstarter-controller</module>
+    </modules>
+    <profiles>
+    <!-- 子模块继承之后，提供作用：锁定版本+子modlue不用写groupId和version  -->
+
+        <profile>
+            <!-- 测试环境 -->
+            <id>test</id>
+            <properties>
+                <env>test</env>
+                <datasource.url><![CDATA[jdbc:mysql://192.168.111.31/moli-all?useUnicode=true&characterEncoding=utf8&useSSL=false&serverTimezone=GMT%2B8]]></datasource.url>
+                <datasource.driver>com.mysql.cj.jdbc.Driver</datasource.driver>
+                <datasource.username>root</datasource.username>
+                <datasource.password>zenith</datasource.password>
+            </properties>
+        </profile>
+
+        <profile>
+            <!-- 正式环境 -->
+            <id>prod</id>
+            <properties>
+                <env>prod</env>
+                <datasource.url><![CDATA[jdbc:mysql://192.168.111.31/moli-all?useUnicode=true&characterEncoding=utf8&useSSL=false&serverTimezone=GMT%2B8]]></datasource.url>
+                <datasource.driver>com.mysql.cj.jdbc.Driver</datasource.driver>
+                <datasource.username>root</datasource.username>
+                <datasource.password>zenith</datasource.password>
+            </properties>
+        </profile>
+
+        <profile>
+            <!-- 开发环境 -->
+            <id>dev</id>
+            <properties>
+                <env>dev</env>
+                <datasource.url><![CDATA[jdbc:mysql://192.168.111.31/moli-all?useUnicode=true&characterEncoding=utf8&useSSL=false&serverTimezone=GMT%2B8]]></datasource.url>
+                <datasource.driver>com.mysql.cj.jdbc.Driver</datasource.driver>
+                <datasource.username>root</datasource.username>
+                <datasource.password>zenith</datasource.password>
+            </properties>
+        </profile>
+    </profiles>
+
+    <properties>
+        <java.version>17</java.version>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <spring-boot.version>3.0.2</spring-boot.version>
+    </properties>
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
+        </dependency>
+
+        <!--mysql的驱动依赖-->
+        <dependency>
+            <groupId>com.mysql</groupId>
+            <artifactId>mysql-connector-j</artifactId>
+        </dependency>
+        <!--mybatis的起步依赖-->
+        <dependency>
+            <groupId>org.mybatis.spring.boot</groupId>
+            <artifactId>mybatis-spring-boot-starter</artifactId>
+            <version>3.0.2</version>
+        </dependency>
+
+        <!--info注解-->
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>1.18.6</version>
+        </dependency>
+
+        <!--mybatis-plus的依赖-->
+        <dependency>
+            <groupId>com.baomidou</groupId>
+            <artifactId>mybatis-plus-boot-starter</artifactId>
+            <version>3.4.1</version>
+        </dependency>
+
+        <!-- druid数据源驱动 -->
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>druid-spring-boot-starter</artifactId>
+            <version>1.1.21</version>
+        </dependency>
+
+        <!-- redis依赖 -->
+        <dependency>
+            <groupId>org.redisson</groupId>
+            <artifactId>redisson</artifactId>
+            <version>3.11.1</version>
+        </dependency>
+
+        <!--json依赖-->
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>fastjson</artifactId>
+            <version>1.2.5</version>
+        </dependency>
+
+        <!--swagger-->
+        <!-- https://mvnrepository.com/artifact/io.springfox/springfox-swagger2 -->
+        <dependency>
+            <groupId>io.springfox</groupId>
+            <artifactId>springfox-swagger2</artifactId>
+            <version>2.9.2</version>
+        </dependency>
+        <dependency>
+            <groupId>io.springfox</groupId>
+            <artifactId>springfox-swagger-ui</artifactId>
+            <version>2.9.2</version>
+        </dependency>
+
+        <!--springboot依赖-->
+        <!-- https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-dependencies -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-dependencies</artifactId>
+            <version>${spring-boot.version}</version>
+            <type>pom</type>
+        </dependency>
+    </dependencies>
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-dependencies</artifactId>
+                <version>${spring-boot.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+
+            <dependency>
+                <groupId>com.taoyiluo.springboot-quickstarter-api</groupId>
+                <artifactId>springboot-quickstarter-api</artifactId>
+                <version>0.0.1-SNAPSHOT</version>
+            </dependency>
+            <dependency>
+                <groupId>com.taoyiluo.springboot-quickstarter-service</groupId>
+                <artifactId>springboot-quickstarter-service</artifactId>
+                <version>0.0.1-SNAPSHOT</version>
+            </dependency>
+            <dependency>
+                <groupId>com.taoyiluo.springboot-quickstarter-run</groupId>
+                <artifactId>springboot-quickstarter-run</artifactId>
+                <version>0.0.1-SNAPSHOT</version>
+            </dependency>
+            <dependency>
+                <groupId>com.taoyiluo.springboot-quickstarter-controller</groupId>
+                <artifactId>springboot-quickstarter-controller</artifactId>
+                <version>0.0.1-SNAPSHOT</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.8.1</version>
+                <configuration>
+                    <source>17</source>
+                    <target>17</target>
+                    <encoding>UTF-8</encoding>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <version>${spring-boot.version}</version>
+                <configuration>
+                    <mainClass>com.taoyiluo.springbootquickstarter.SpringbootQuickstarterApplication</mainClass>
+                    <skip>true</skip>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>repackage</id>
+                        <goals>
+                            <goal>repackage</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>
