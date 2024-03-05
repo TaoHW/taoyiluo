@@ -1,0 +1,18 @@
+server:
+  port: 18080
+  servlet:
+    context-path: /springboot3
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/yukuaiban
+    username: root
+    password: root
+
+swagger:
+  show: true
+  list:
+    - group-name: springboot3快速上手程序
+      package: com.taoyiluo
+      paths: /**
+      version: 1.0
