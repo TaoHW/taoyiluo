@@ -1,15 +1,17 @@
 package com.taoyiluo.springbootquickstarterrun;
 
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.ComponentScan;
 
 @SpringBootApplication
 @ComponentScan(basePackages = {"com.taoyiluo"})
+@Slf4j
 public class SpringbootQuickstarterRunApplication {
 	// 启动类
 	public static void main(String[] args) {
 		SpringApplication.run(SpringbootQuickstarterRunApplication.class, args);
-		System.out.println("启动成功！");
+		log.info("项目启动成功");
 	}
 }
