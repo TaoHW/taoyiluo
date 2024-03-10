@@ -3,13 +3,11 @@ package com.taoyiluo.springbootquickstartercontroller.demos.web.test;
 import com.alibaba.fastjson.JSONObject;
 import com.taoyiluo.springbootquickstarterapi.po.AliResultPO;
 import com.taoyiluo.springbootquickstarterservice.service.RedisTestService;
+import io.swagger.annotations.Api;
 import org.apache.poi.ss.formula.functions.T;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.Map;
 
@@ -20,7 +18,9 @@ import java.util.Map;
  * @Date 2024/3/8 14:51
  * @Version V1.0
  */
-@Controller
+@RestController
+@RequestMapping("/test")
+@Api("测试接口")
 public class TestController {
 	@Autowired
 	private RedisTestService redisTestService;
