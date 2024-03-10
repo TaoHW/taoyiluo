@@ -48,7 +48,6 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.8.1</version>
                 <configuration>
                     <source>17</source>
                     <target>17</target>
@@ -56,12 +55,30 @@
                 </configuration>
             </plugin>
             <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-resources-plugin</artifactId>
+                <configuration>
+                    <encoding>UTF-8</encoding>
+                    <nonFilteredFileExtensions>
+                        <nonFilteredFileExtension>xlsx</nonFilteredFileExtension>
+                        <nonFilteredFileExtension>xls</nonFilteredFileExtension>
+                        <nonFilteredFileExtension>cer</nonFilteredFileExtension>
+                    </nonFilteredFileExtensions>
+                </configuration>
+            </plugin>
+            <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <version>${spring-boot.version}</version>
+<!--                <configuration>-->
+<!--                    <mainClass>com.taoyiluo.springbootquickstarterrun.SpringbootQuickstarterRunApplication</mainClass>-->
+<!--                    <skip>true</skip>-->
+<!--                </configuration>-->
                 <configuration>
-                    <mainClass>com.taoyiluo.springbootquickstarterrun.SpringbootQuickstarterRunApplication</mainClass>
-                    <skip>true</skip>
+                    <finalName>${project.parent.artifactId}</finalName>
+                    <!--本地依赖jar文件打进部署包-->
+                    <includeSystemScope>true</includeSystemScope>
+                    <jvmArguments>-Dfile.encoding=UTF-8</jvmArguments>
                 </configuration>
                 <executions>
                     <execution>

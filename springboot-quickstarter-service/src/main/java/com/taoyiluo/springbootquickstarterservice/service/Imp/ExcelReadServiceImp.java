@@ -6,12 +6,14 @@ import com.taoyiluo.springbootquickstarterapi.utils.excel.ExcelUploadProtectionU
 import com.taoyiluo.springbootquickstarterapi.utils.excel.UploadDataListener;
 import com.taoyiluo.springbootquickstarterservice.service.ExcelReadService;
 import jakarta.servlet.http.HttpServletResponse;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashSet;
 import java.util.List;
 
@@ -23,6 +25,7 @@ import java.util.List;
  * @Version V1.0
  */
 @Service
+@Slf4j
 public class ExcelReadServiceImp implements ExcelReadService {
 
 	@Autowired
@@ -34,6 +37,8 @@ public class ExcelReadServiceImp implements ExcelReadService {
 		excelUploadProtectionUtil.fileUploadProtection(file.getOriginalFilename());
 		EasyExcel.read(file.getInputStream(), MatterExcelImportEntity.class, new UploadDataListener()).sheet("Sheet1").doRead();
 		List<MatterExcelImportEntity> list = new UploadDataListener().getList();
+		log.info("读取到的数据大小：{}", list.size());
+		log.info("读取到的数据：{}", Arrays.copyOfRange(list.toArray(), 0, 10));
 //		ArrayList<MatterQueryBaseDTO> matterQueryBaseDTOList = new ArrayList<>();
 //		for (MatterExcelImportEntity item : list) {
 //			AtgBizMatterQueryBycategoryResponse responseData = callbackAtgForMatterServiceImpl.getmatterByDirectory(item.getCategory());
