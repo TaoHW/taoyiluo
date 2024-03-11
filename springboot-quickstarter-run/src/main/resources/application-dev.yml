@@ -71,7 +71,7 @@ spring:
 server:
   uri-encoding: utf-8
   servlet:
-    context-path: /demo
+    context-path: /springboot3-demo
   port: 28082
   error:
     include-exception: true

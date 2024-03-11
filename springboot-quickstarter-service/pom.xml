@@ -31,14 +31,12 @@
             <version>3.0.2</version>
         </dependency>
         <dependency>
-            <groupId>com.taoyiluo</groupId>
-            <artifactId>springboot-quickstarter-api</artifactId>
-            <version>0.0.1-SNAPSHOT</version>
-            <scope>compile</scope>
-        </dependency>
-        <dependency>
             <groupId>org.apache.tomcat.embed</groupId>
             <artifactId>tomcat-embed-core</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.taoyiluo</groupId>
+            <artifactId>springboot-quickstarter-api</artifactId>
         </dependency>
     </dependencies>
     <dependencyManagement>
@@ -49,6 +47,12 @@
                 <version>${spring-boot.version}</version>
                 <type>pom</type>
                 <scope>import</scope>
+            </dependency>
+
+            <dependency>
+                <groupId>com.taoyiluo</groupId>
+                <artifactId>springboot-quickstarter-api</artifactId>
+                <version>0.0.1-SNAPSHOT</version>
             </dependency>
         </dependencies>
     </dependencyManagement>

@@ -59,12 +59,6 @@
             <artifactId>spring-boot-starter</artifactId>
         </dependency>
 
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-test</artifactId>
-            <scope>test</scope>
-        </dependency>
-
         <!-- Redis组件 -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -158,22 +152,22 @@
             </dependency>
 
             <dependency>
-                <groupId>com.taoyiluo.springboot-quickstarter-api</groupId>
+                <groupId>com.taoyiluo</groupId>
                 <artifactId>springboot-quickstarter-api</artifactId>
                 <version>0.0.1-SNAPSHOT</version>
             </dependency>
             <dependency>
-                <groupId>com.taoyiluo.springboot-quickstarter-service</groupId>
+                <groupId>com.taoyiluo</groupId>
                 <artifactId>springboot-quickstarter-service</artifactId>
                 <version>0.0.1-SNAPSHOT</version>
             </dependency>
             <dependency>
-                <groupId>com.taoyiluo.springboot-quickstarter-run</groupId>
+                <groupId>com.taoyiluo</groupId>
                 <artifactId>springboot-quickstarter-run</artifactId>
                 <version>0.0.1-SNAPSHOT</version>
             </dependency>
             <dependency>
-                <groupId>com.taoyiluo.springboot-quickstarter-controller</groupId>
+                <groupId>com.taoyiluo</groupId>
                 <artifactId>springboot-quickstarter-controller</artifactId>
                 <version>0.0.1-SNAPSHOT</version>
             </dependency>

@@ -25,10 +25,10 @@
             <artifactId>spring-boot-starter</artifactId>
         </dependency>
 
+        <!-- 引入springboot-quickstarter-controller依赖 -->
         <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-test</artifactId>
-            <scope>test</scope>
+            <groupId>com.taoyiluo</groupId>
+            <artifactId>springboot-quickstarter-controller</artifactId>
         </dependency>
     </dependencies>
     <dependencyManagement>
