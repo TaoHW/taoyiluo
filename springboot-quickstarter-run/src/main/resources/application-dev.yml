@@ -1,10 +1,3 @@
-swagger:
-  show: true
-  list:
-    - group-name: springboot3快速上手程序
-      package: com.taoyiluo
-      paths: /**
-      version: 1.0
 spring:
   servlet:
     multipart:
@@ -12,46 +5,47 @@ spring:
       max-file-size: 100MB
       max-request-size: 100MB
   datasource:
-    driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/yukuaiban
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://127.0.0.1:3306/ykb-spcx?useUnicode=true&characterEncoding=utf8&useSSL=false&serverTimezone=GMT%2B8
     username: root
     password: root
+    type: com.alibaba.druid.pool.DruidDataSource
+  druid:
+    # 初始化连接大小   默认：0
+    initial-size: 0
+    # 最小空闲连接数 默认：0
+    min-idle: 0
+    # 最大连接数  默认：8
+    max-active: 8
+    # 获取连接等待超时的时间(毫秒) 默认：-1
+    max-wait: 30000
+    # 查询超时时间(秒)
+    query-timeout: 90
+    # 用来检测连接是否有效的sql，要求是一个查询语句
+    validation-query: SELECT 1 FROM DUAL
+    # 申请连接时检测连接可用性 默认：false
+    test-on-borrow: false
+    # 归还连接检测 默认：false
+    test-on-return: false
+    # 超时是否检测连接可用性
+    test-while-idle: true
+    # 配置间隔多久才进行一次检测，检测需要关闭的空闲连接 (毫秒)
+    time-between-eviction-runs-millis: 60000
+    # 配置一个连接在池中最小生存的时间(毫秒，默认30分钟)
+    min-evictable-idle-time-millis: 300000
+    # 通过别名的方式配置扩展插件，常用的插件有：监控统计用的filter:stat；日志用的filter:log4j；防御sql注入的filter:wall
+    filters: slf4j
+    # 慢SQL记录 https://github.com/alibaba/druid/wiki/%E9%85%8D%E7%BD%AE_StatFilter
+    filter:
+      slf4j:
+        statement-executable-sql-log-enable: true
+    # 是否缓存PreparedStatement. PSCache对支持游标的数据库性能提升巨大，比如说oracle.在mysql下建议关闭.
+    pool-prepared-statements: false
+    # 每个连接上PSCache的大小
+    max-pool-prepared-statement-per-connection-size: 20
+    # 合并多个DruidDataSource的监控数据
+    use-global-data-source-stat: true
 
-    druid:
-      # 初始化连接大小   默认：0
-      initial-size: 0
-      # 最小空闲连接数 默认：0
-      min-idle: 0
-      # 最大连接数  默认：8
-      max-active: 8
-      # 获取连接等待超时的时间(毫秒) 默认：-1
-      max-wait: 30000
-      # 查询超时时间(秒)
-      query-timeout: 90
-      # 用来检测连接是否有效的sql，要求是一个查询语句
-      validation-query: SELECT 1 FROM DUAL
-      # 申请连接时检测连接可用性 默认：false
-      test-on-borrow: false
-      # 归还连接检测 默认：false
-      test-on-return: false
-      # 超时是否检测连接可用性
-      test-while-idle: true
-      # 配置间隔多久才进行一次检测，检测需要关闭的空闲连接 (毫秒)
-      time-between-eviction-runs-millis: 60000
-      # 配置一个连接在池中最小生存的时间(毫秒，默认30分钟)
-      min-evictable-idle-time-millis: 300000
-      # 通过别名的方式配置扩展插件，常用的插件有：监控统计用的filter:stat；日志用的filter:log4j；防御sql注入的filter:wall
-      filters: slf4j
-      # 慢SQL记录 https://github.com/alibaba/druid/wiki/%E9%85%8D%E7%BD%AE_StatFilter
-      filter:
-        slf4j:
-          statement-executable-sql-log-enable: true
-      # 是否缓存PreparedStatement. PSCache对支持游标的数据库性能提升巨大，比如说oracle.在mysql下建议关闭.
-      pool-prepared-statements: false
-      # 每个连接上PSCache的大小
-      max-pool-prepared-statement-per-connection-size: 20
-      # 合并多个DruidDataSource的监控数据
-      use-global-data-source-stat: true
   data:
     redis:
       host: 127.0.0.1
@@ -77,7 +71,33 @@ spring:
 server:
   uri-encoding: utf-8
   servlet:
-    context-path: /springboot3-demo
-  port: 18088
+    context-path: /demo
+  port: 28082
   error:
     include-exception: true
+
+swagger:
+  show: true
+  list:
+    - group-name: springboot3快速上手程序
+      package: com.taoyiluo
+      paths: /**
+      version: 1.0
+
+redissionConfig:
+  singleServerConfig:
+    address: "redis://${spring.data.redis.host}:${spring.data.redis.port}"
+    #    password: ${spring.redis.password}
+    database: ${spring.data.redis.database}
+    idleConnectionTimeout: 10000
+    connectTimeout: 10000
+    timeout: 3000
+    retryAttempts: 3
+    retryInterval: 1500
+    subscriptionsPerConnection: 5
+    clientName: null
+    subscriptionConnectionMinimumIdleSize: 1
+    subscriptionConnectionPoolSize: 50
+    connectionMinimumIdleSize: 32
+    connectionPoolSize: 64
+    dnsMonitoringInterval: 5000

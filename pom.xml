@@ -22,20 +22,6 @@
         <module>springboot-quickstarter-controller</module>
     </modules>
     <profiles>
-    <!-- 子模块继承之后，提供作用：锁定版本+子modlue不用写groupId和version  -->
-
-        <profile>
-            <!-- 测试环境 -->
-            <id>test</id>
-            <properties>
-                <env>test</env>
-                <datasource.url><![CDATA[jdbc:mysql://192.168.111.31/moli-all?useUnicode=true&characterEncoding=utf8&useSSL=false&serverTimezone=GMT%2B8]]></datasource.url>
-                <datasource.driver>com.mysql.cj.jdbc.Driver</datasource.driver>
-                <datasource.username>root</datasource.username>
-                <datasource.password>zenith</datasource.password>
-            </properties>
-        </profile>
-
         <profile>
             <!-- 正式环境 -->
             <id>prod</id>
