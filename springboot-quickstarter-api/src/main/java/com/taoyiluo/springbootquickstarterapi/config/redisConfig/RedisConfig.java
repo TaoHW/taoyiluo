@@ -20,6 +20,8 @@ public class RedisConfig {
 	/**
 	 * RedisTemplate模板
 	 */
+	//注入对象的默认名字是方法名
+	//如果方法的内部需要使用ioc容器中存在的bean对象，那么只要在方法上声明，spring会自动注入
 	@Bean("redisTemplate")
 	@SuppressWarnings("all")
 	public RedisTemplate<String, Object> redisTemplate(RedisConnectionFactory factory) {
