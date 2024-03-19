@@ -7,9 +7,11 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="tmybatis-spring-boot-autoconfigure" />
         <module name="springboot-quickstarter-controller" />
         <module name="springboot-quickstarter-api" />
         <module name="springboot-quickstarter-service" />
+        <module name="tmybatis-spring-boot-starter" />
         <module name="springboot-quickstarter-run" />
       </profile>
     </annotationProcessing>
@@ -21,6 +23,8 @@
       <module name="springboot-quickstarter-controller" options="-parameters" />
       <module name="springboot-quickstarter-run" options="-parameters" />
       <module name="springboot-quickstarter-service" options="-parameters" />
+      <module name="tmybatis-spring-boot-autoconfigure" options="-parameters" />
+      <module name="tmybatis-spring-boot-starter" options="-parameters" />
     </option>
   </component>
 </project>

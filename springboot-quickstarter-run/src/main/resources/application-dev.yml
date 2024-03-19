@@ -6,9 +6,9 @@ spring:
       max-request-size: 100MB
   datasource:
     driver-class-name: com.mysql.jdbc.Driver
-    url: jdbc:mysql://127.0.0.1:3306/ykb-spcx?useUnicode=true&characterEncoding=utf8&useSSL=false&serverTimezone=GMT%2B8
+    url: jdbc:mysql://120.79.89.43:3306/star_sea?useUnicode=true&characterEncoding=utf8&useSSL=false&serverTimezone=GMT%2B8
     username: root
-    password: root
+    password: Tyl@123
     type: com.alibaba.druid.pool.DruidDataSource
   druid:
     # 初始化连接大小   默认：0
@@ -48,10 +48,10 @@ spring:
 
   data:
     redis:
-      host: 127.0.0.1
+      host: 120.79.89.43
       port: 6379
       database: 12
-      #password:
+      password: Tyl@123
       # 读超时
       timeout: 3000
       # 连接超时
@@ -87,7 +87,7 @@ swagger:
 redissionConfig:
   singleServerConfig:
     address: "redis://${spring.data.redis.host}:${spring.data.redis.port}"
-    #    password: ${spring.redis.password}
+    password: ${spring.redis.password}
     database: ${spring.data.redis.database}
     idleConnectionTimeout: 10000
     connectTimeout: 10000
@@ -101,3 +101,26 @@ redissionConfig:
     connectionMinimumIdleSize: 32
     connectionPoolSize: 64
     dnsMonitoringInterval: 5000
+
+ip:
+  localhost: ${ip.localhost-web}/ykb-spcx
+  localhost-web: https://cqzwfw.cqdcg.com/ykb-spcx
+  ali-matter: https://cqzwfw.cqdcg.com/cqzwzt
+  ali-manage: http://opt.cqdcg.com:32688
+  ali-sign-fileUrl : http://23.210.52.224
+  userCenter-domain: https://authcq.cqdcg.com:1443
+  userCenter-ip: http://svc-user-center-sso.user-center:80
+  #新点事项库
+  xd-sxk: http://svc-epoint-cqgatewaybuild.epoint:8080/cqgateway/cqsxkrest
+  #新点工作门户
+  xd-gzmh: http://svc-epoint-cqgatewaybuild.epoint:8080/cqgateway/cqgzmh
+  #新点办件库
+  #  xd-bj: http://svc-epoint-cqgatewaybuild.epoint:8080/cqgateway/
+  # 新点审批情形
+  xd-sp: https://svc-epoint-cqzwfw.epoint:8080
+  # ofd 预览
+  ofd-ip: //cqzwfw.cqdcg.com
+  # 代办人信息查询
+  principal-url: http://intranet-app-ykb-common-service-prod7afecf.app/ykb/common/service/contactPerson/fetch
+  # 地址列表
+  address-url: http://intranet-app-ykb-common-service-prod7afecf.app/ykb/common/service

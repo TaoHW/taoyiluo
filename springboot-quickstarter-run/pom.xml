@@ -25,11 +25,24 @@
             <artifactId>spring-boot-starter</artifactId>
         </dependency>
 
-        <!-- 引入springboot-quickstarter-controller依赖 -->
         <dependency>
-            <groupId>com.taoyiluo</groupId>
-            <artifactId>springboot-quickstarter-controller</artifactId>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
+
+        <!-- 引入springboot-quickstarter-controller依赖 -->
+<!--        <dependency>-->
+<!--            <groupId>com.taoyiluo</groupId>-->
+<!--            <artifactId>springboot-quickstarter-controller</artifactId>-->
+<!--        </dependency>-->
+
+        <!--引入自定义的mybatis启动依赖-->
+<!--        <dependency>-->
+<!--            <groupId>org.example</groupId>-->
+<!--            <artifactId>tmybatis-spring-boot-starter</artifactId>-->
+<!--            <version>0.0.1-SNAPSHOT</version>-->
+<!--        </dependency>-->
+
     </dependencies>
     <dependencyManagement>
         <dependencies>

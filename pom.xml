@@ -20,6 +20,8 @@
         <module>springboot-quickstarter-api</module>
         <module>springboot-quickstarter-service</module>
         <module>springboot-quickstarter-controller</module>
+        <module>tmybatis-spring-boot-autoconfigure</module>
+        <module>tmybatis-spring-boot-starter</module>
     </modules>
     <profiles>
         <profile>
