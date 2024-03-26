@@ -1,0 +1,136 @@
+spring:
+  servlet:
+    multipart:
+      enabled: true
+      max-file-size: 100MB
+      max-request-size: 100MB
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+#    url: jdbc:mysql://120.79.89.43:3306/star_sea?useUnicode=true&characterEncoding=utf8&useSSL=false&serverTimezone=GMT%2B8
+    url: jdbc:mysql://127.0.0.1:3306/yukuaiban?useUnicode=true&characterEncoding=utf8&useSSL=false&serverTimezone=GMT%2B8
+    username: root
+#    password: Tyl@123
+    password: root
+#  datasource:
+#    driver-class-name: com.mysql.jdbc.Driver
+#    url: jdbc:mysql://120.79.89.43:3306/star_sea?useUnicode=true&characterEncoding=utf8&useSSL=false&serverTimezone=GMT%2B8
+#    username: root
+#    password: Tyl@123
+#    type: com.alibaba.druid.pool.DruidDataSource
+  druid:
+    # 初始化连接大小   默认：0
+    initial-size: 0
+    # 最小空闲连接数 默认：0
+    min-idle: 0
+    # 最大连接数  默认：8
+    max-active: 8
+    # 获取连接等待超时的时间(毫秒) 默认：-1
+    max-wait: 30000
+    # 查询超时时间(秒)
+    query-timeout: 90
+    # 用来检测连接是否有效的sql，要求是一个查询语句
+    validation-query: SELECT 1 FROM DUAL
+    # 申请连接时检测连接可用性 默认：false
+    test-on-borrow: false
+    # 归还连接检测 默认：false
+    test-on-return: false
+    # 超时是否检测连接可用性
+    test-while-idle: true
+    # 配置间隔多久才进行一次检测，检测需要关闭的空闲连接 (毫秒)
+    time-between-eviction-runs-millis: 60000
+    # 配置一个连接在池中最小生存的时间(毫秒，默认30分钟)
+    min-evictable-idle-time-millis: 300000
+    # 通过别名的方式配置扩展插件，常用的插件有：监控统计用的filter:stat；日志用的filter:log4j；防御sql注入的filter:wall
+    filters: slf4j
+    # 慢SQL记录 https://github.com/alibaba/druid/wiki/%E9%85%8D%E7%BD%AE_StatFilter
+    filter:
+      slf4j:
+        statement-executable-sql-log-enable: true
+    # 是否缓存PreparedStatement. PSCache对支持游标的数据库性能提升巨大，比如说oracle.在mysql下建议关闭.
+    pool-prepared-statements: false
+    # 每个连接上PSCache的大小
+    max-pool-prepared-statement-per-connection-size: 20
+    # 合并多个DruidDataSource的监控数据
+    use-global-data-source-stat: true
+
+  data:
+    redis:
+      host: 120.79.89.43
+      port: 6379
+      database: 12
+      password: Tyl@123
+      # 读超时
+      timeout: 3000
+      # 连接超时
+      connectTimeout: 5000
+      # Lettuce连接池
+      lettuce:
+        pool:
+          # 最小空闲连接
+          min-idle: 5
+          # 最大空闲连接
+          max-idle: 10
+          # 最大连接数
+          max-active: 100
+          # 连接分配应该阻塞的最大时间
+          max-wait: 2000
+  main:
+    allow-circular-references: false
+
+server:
+  uri-encoding: utf-8
+  servlet:
+    context-path: /springboot3-demo
+  port: 28082
+  error:
+    include-exception: true
+
+swagger:
+  show: true
+  list:
+    - group-name: springboot3快速上手程序
+      package: com.taoyiluo
+      paths: /**
+      version: 1.0
+
+redissionConfig:
+  singleServerConfig:
+    address: "redis://${spring.data.redis.host}:${spring.data.redis.port}"
+    password: ${spring.redis.password}
+    database: ${spring.data.redis.database}
+    idleConnectionTimeout: 10000
+    connectTimeout: 10000
+    timeout: 3000
+    retryAttempts: 3
+    retryInterval: 1500
+    subscriptionsPerConnection: 5
+    clientName: null
+    subscriptionConnectionMinimumIdleSize: 1
+    subscriptionConnectionPoolSize: 50
+    connectionMinimumIdleSize: 32
+    connectionPoolSize: 64
+    dnsMonitoringInterval: 5000
+
+ip:
+  localhost: ${ip.localhost-web}/ykb-spcx
+  localhost-web: https://cqzwfw.cqdcg.com/ykb-spcx
+  ali-matter: https://cqzwfw.cqdcg.com/cqzwzt
+  ali-matter123: https://cqzwfw.cqdcg.com/cqzwzt
+  ali-manage: http://opt.cqdcg.com:32688
+  ali-sign-fileUrl : http://23.210.52.224
+  userCenter-domain: https://authcq.cqdcg.com:1443
+  userCenter-ip: http://svc-user-center-sso.user-center:80
+  #新点事项库
+  xd-sxk: http://svc-epoint-cqgatewaybuild.epoint:8080/cqgateway/cqsxkrest
+  #新点工作门户
+  xd-gzmh: http://svc-epoint-cqgatewaybuild.epoint:8080/cqgateway/cqgzmh
+  #新点办件库
+  #  xd-bj: http://svc-epoint-cqgatewaybuild.epoint:8080/cqgateway/
+  # 新点审批情形
+  xd-sp: https://svc-epoint-cqzwfw.epoint:8080
+  # ofd 预览
+  ofd-ip: //cqzwfw.cqdcg.com
+  # 代办人信息查询
+  principal-url: http://intranet-app-ykb-common-service-prod7afecf.app/ykb/common/service/contactPerson/fetch
+  # 地址列表
+  address-url: http://intranet-app-ykb-common-service-prod7afecf.app/ykb/common/service

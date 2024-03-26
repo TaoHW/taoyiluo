@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.taoyiluo.springbootquickstarterservice.mapper.SignTaskMapper">
+    <select id="getUnsignTaskList" resultType="com.zenith.ykb.spcx.domain.aosign.dto.SignTaskDto">
+        SELECT * FROM sign_task  GROUP BY TASK_ID;
+    </select>
+
+    <select id="getSignUserName" resultType="java.lang.String">
+        SELECT NEED_SIGNED_NAME FROM sign_task where TASK_ID = #{taskId};
+    </select>
+</mapper>
