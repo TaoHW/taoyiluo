@@ -42,13 +42,13 @@ management:
       enabled: false
 mybatis-plus:
   mapper-locations: classpath*:mapper/**/*Mapper.xml,classpath*:*mapper/**/*Mapper.xml,classpath*:*mapper/*Mapper.xml
-  type-aliases-package: com.zenith.**.entity,com.zenith.core.**.entity,com.zenith.**.modal
+  type-aliases-package: com.taoyiluo.**.entity
   #typeEnumsPackage: org.springblade.dashboard.entity.enums
   global-config:
     # 关闭MP3.0自带的banner
     banner: false
     db-config:
-      id-type: ID_WORKER
+      id-type: auto
       #字段策略 0:"忽略判断",1:"非 NULL 判断"),2:"非空判断"
       field-strategy: 2
       #驼峰下划线转换

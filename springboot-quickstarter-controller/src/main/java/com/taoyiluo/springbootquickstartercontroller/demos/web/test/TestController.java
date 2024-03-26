@@ -59,7 +59,7 @@ public class TestController {
 	//枚举读取配置文件
 	@GetMapping("/enum/demo")
 	public String typeConstantsDemo() {
-		String value = IpProperties.LogTypeEnum.getSystemNameTarget("https://cqzwfw.cqdcg.com/cqzwzt/111");
+		String value = IpProperties.LogTypeEnum.getSystemNameTarget("https://cqzwfw.cqdcg.com/cqzwzt");
 		System.out.println(value);
 		return "Value:"+value;
 	}

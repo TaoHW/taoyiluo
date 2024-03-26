@@ -1,6 +1,5 @@
 package com.taoyiluo.springbootquickstartercontroller.demos.web.fileImport;
 
-import com.baomidou.mybatisplus.extension.api.R;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiResponse;
@@ -32,7 +31,7 @@ public class ExcelImportController {
 	@PostMapping("/excel/import")
 	@ApiOperation("excel导入接口")
 	@ResponseBody
-	@ApiResponses({@ApiResponse(code = 200, message = "成功", response = R.class)})
+	@ApiResponses({@ApiResponse(code = 200, message = "成功")})
 	public void excelImport(HttpServletResponse response, MultipartFile file) throws IOException {
 	}
 
@@ -45,7 +44,7 @@ public class ExcelImportController {
 	@GetMapping("/export/excel")
 	@ApiOperation("导出")
 	@ResponseBody
-	@ApiResponses({@ApiResponse(code = 200, message = "成功", response = R.class)})
+	@ApiResponses({@ApiResponse(code = 200, message = "成功")})
 	public void excelExport(HttpServletResponse response) throws IOException, IllegalAccessException, InstantiationException {
 	}
 }

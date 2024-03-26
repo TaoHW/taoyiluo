@@ -5,11 +5,18 @@ spring:
       max-file-size: 100MB
       max-request-size: 100MB
   datasource:
-    driver-class-name: com.mysql.jdbc.Driver
-    url: jdbc:mysql://120.79.89.43:3306/star_sea?useUnicode=true&characterEncoding=utf8&useSSL=false&serverTimezone=GMT%2B8
+    driver-class-name: com.mysql.cj.jdbc.Driver
+#    url: jdbc:mysql://120.79.89.43:3306/star_sea?useUnicode=true&characterEncoding=utf8&useSSL=false&serverTimezone=GMT%2B8
+    url: jdbc:mysql://127.0.0.1:3306/yukuaiban?useUnicode=true&characterEncoding=utf8&useSSL=false&serverTimezone=GMT%2B8
     username: root
-    password: Tyl@123
-    type: com.alibaba.druid.pool.DruidDataSource
+#    password: Tyl@123
+    password: root
+#  datasource:
+#    driver-class-name: com.mysql.jdbc.Driver
+#    url: jdbc:mysql://120.79.89.43:3306/star_sea?useUnicode=true&characterEncoding=utf8&useSSL=false&serverTimezone=GMT%2B8
+#    username: root
+#    password: Tyl@123
+#    type: com.alibaba.druid.pool.DruidDataSource
   druid:
     # 初始化连接大小   默认：0
     initial-size: 0
@@ -67,6 +74,8 @@ spring:
           max-active: 100
           # 连接分配应该阻塞的最大时间
           max-wait: 2000
+  main:
+    allow-circular-references: false
 
 server:
   uri-encoding: utf-8
@@ -106,6 +115,7 @@ ip:
   localhost: ${ip.localhost-web}/ykb-spcx
   localhost-web: https://cqzwfw.cqdcg.com/ykb-spcx
   ali-matter: https://cqzwfw.cqdcg.com/cqzwzt
+  ali-matter123: https://cqzwfw.cqdcg.com/cqzwzt
   ali-manage: http://opt.cqdcg.com:32688
   ali-sign-fileUrl : http://23.210.52.224
   userCenter-domain: https://authcq.cqdcg.com:1443
